@@ -16,12 +16,14 @@ public class RadioButtons {
         String url = "https://chroma-tech-academy.mexil.it/static_page/";
         driver.get(url);
 
+        // by cssSelector
+        //driver.findElement(By.cssSelector("[value=\"radio1\"]")).click();
 
         // by xpath
         driver.findElement(By.xpath("//input[@name='radioButton']")).click();
 
         // index
-        driver.findElement(By.xpath("(//input[@name='radioButton'])[2]")).click();
+        //driver.findElement(By.xpath("(//input[@name='radioButton'])[2]")).click();
 
     }
     
