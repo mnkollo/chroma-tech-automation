@@ -23,7 +23,7 @@ public class RadioButtons {
         driver.findElement(By.xpath("//input[@name='radioButton']")).click();
 
         // index
-        //driver.findElement(By.xpath("(//input[@name='radioButton'])[2]")).click();
+        driver.findElement(By.xpath("(//input[@name='radioButton'])[2]")).click();
 
     }
     
