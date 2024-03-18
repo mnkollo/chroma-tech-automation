@@ -37,7 +37,6 @@ public class Alerts {
         //alert.accept();  //Used to confirm a positive scenario  (so click on the ok button)
         alert.dismiss(); //Used to confirm a negative scenario (so click on the cancel button)
 
-        Thread.sleep(2000);
         driver.quit();
   }
     
