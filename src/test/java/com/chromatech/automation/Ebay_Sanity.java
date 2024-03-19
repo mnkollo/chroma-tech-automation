@@ -16,6 +16,7 @@ public class Ebay_Sanity {
         Thread.sleep(2000);
         String expectedURL = "https://www.ebay.com/n/all-categories?_from=R40&_trksid=p4432023.m570.l1313&_nkw=&_sacat=0";
         String expectedTitle = "Shop by Category | eBay";
+        
         driver.findElement(By.cssSelector("[id='gh-btn']")).click();
 
         String newUrl = driver.getCurrentUrl();

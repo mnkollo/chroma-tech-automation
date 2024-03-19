@@ -24,7 +24,10 @@ public class Hard_Assertions {
         String actualPageTitle = driver.getTitle();
         String expectedPageTitle = "Chroma Tech Academy";
         
-        Assert.assertEquals(actualPageTitle, expectedPageTitle, "Verify Page Title");
+        Assert.assertEquals(actualPageTitle, expectedPageTitle, "-- VERIFY PAGE TITLE --");
+
+        boolean doPageTitlesMatch = actualPageTitle.contentEquals(expectedPageTitle);
+        Assert.assertTrue(doPageTitlesMatch, "-- VERIFY PAGE TITLE --");
 
         driver.quit();
 
