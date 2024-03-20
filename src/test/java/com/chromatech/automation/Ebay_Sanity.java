@@ -67,11 +67,14 @@ public class Ebay_Sanity {
 
         SoftAssert sa = new SoftAssert();
 
-        String expectedURL = "https://www.ebay.com/n/all-categories?_from=R40&_trksid=p4432023.m570.l1313&_nkw=&_sacat=0";
-        String expectedTitle = "Electronics, Cars, Fashion, Collectibles & More | eBay";
+        WebElement searchTxtBox = driver.findElement(By.cssSelector("[class='gh-tb ui-autocomplete-input']"));
+        searchTxtBox.sendKeys("Hello There");
+        driver.findElement(By.cssSelector("[id='gh-btn']")).click();
 
-        sa.assertTrue(driver.findElement(By.cssSelector("[id='gh-btn']")).isEnabled(),
-                "Verify Search button is enabled");
+        String expectedURL = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=Hello+There&_sacat=0";
+        String expectedTitle = "Hello There for sale | eBay";
+
+        sa.assertTrue(driver.findElement(By.cssSelector("[id='gh-btn']")).isEnabled(),"Verify Search button is enabled");
 
         Thread.sleep(2000);
         String newUrl = driver.getCurrentUrl();
@@ -79,12 +82,8 @@ public class Ebay_Sanity {
         System.out.println("The new URL is: " + newUrl);
         System.out.println("The new Title is: " + newTitle);
 
-        sa.assertEquals(newUrl,expectedTitle, "Verify URL of the new page");
-        sa.assertEquals(newTitle, expectedTitle, "Verify Title of the new page");
-
-        WebElement searchTxtBox = driver.findElement(By.cssSelector("[class='gh-tb ui-autocomplete-input']"));
-        searchTxtBox.sendKeys("Hello There");
-        driver.findElement(By.cssSelector("[id='gh-btn']")).click();
+        sa.assertEquals(newUrl,expectedURL, "----Verify URL of the new page-----");
+        sa.assertEquals(newTitle, expectedTitle, "-----Verify Title of the new page-----");
 
         sa.assertAll();
     }
