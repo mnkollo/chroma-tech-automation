@@ -1,0 +1,8 @@
+<suite name="Sanity Test Suite">
+  <test name="Release 2019.5 Sanity Testing">
+    <classes>
+      <class name="package com.chromatech.automation.Ebay_Advanced_Search_Sanity"/>
+      <class name="package com.chromatech.automation.Ebay_Sanity"/>
+    </classes>
+    </test>
+</suite> <!-- Test -->
