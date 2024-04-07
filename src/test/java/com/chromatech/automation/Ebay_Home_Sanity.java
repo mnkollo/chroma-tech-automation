@@ -13,10 +13,9 @@ import org.testng.annotations.Test; // Add import for Test annotation
 import org.testng.asserts.SoftAssert;
 import org.testng.Assert;
 
-public class Ebay_Sanity {
-    WebDriver driver;{    // Add WebDriver driver; to the class level, Declare the driver
-
-    }; 
+public class Ebay_Home_Sanity {
+    WebDriver driver;   // Add WebDriver driver; to the class level, Declare the driver
+    Ebay_Home_Page ebayHomePage;  // Add this line to declare the object of Ebay_Home_Page class
 
     @BeforeClass
     public void setUpClass() {
@@ -36,6 +35,7 @@ public class Ebay_Sanity {
         driver.manage().window().maximize();
         driver.get("https://www.ebay.com/");
         Thread.sleep(2000);
+        ebayHomePage  = new Ebay_Home_Page(driver);  // Add this line to initialize the object of Ebay_Home_Page class    
 
     }
 
@@ -50,7 +50,8 @@ public class Ebay_Sanity {
         String expectedURL = "https://www.ebay.com/n/all-categories?_from=R40&_trksid=p4432023.m570.l1313&_nkw=&_sacat=0";
         String expectedTitle = "Shop by Category | eBay";
 
-        driver.findElement(By.cssSelector("[id='gh-btn']")).click();
+        //driver.findElement(By.cssSelector("[id='gh-btn']")).click();
+        ebayHomePage.clickSearchBtn();  // Call the method from the Ebay_Home_Page class
         String newUrl = driver.getCurrentUrl();
         String newTitle = driver.getTitle();
 
